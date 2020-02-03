@@ -1,7 +1,17 @@
+#!/usr/bin/env python3
+
+# Author: Terry Cox
+# Github: https://github.com/Terry071896/KeckNightTicketSearch
+# Email: tcox@keck.hawaii.edu, tfcox1703@gmail.com
+
+__author__ = 'Terry Cox'
+__version__ = '1.0.1'
+__email__ = ['tcox@keck.hawaii.edu', 'tfcox1703@gmail.com']
+__github__ = 'https://github.com/Terry071896/KeckNightTicketSearch'
+
+
 import numpy as np
 import pandas as pd
-import math
-from joblib import parallel_backend
 import multiprocessing as mp
 import random
 import re
