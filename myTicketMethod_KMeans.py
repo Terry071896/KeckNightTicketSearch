@@ -143,11 +143,17 @@ class SearchTickets(object):
         # self.groups = kmeans.labels_
         # pickle.dump(kmeans, open('kmeans_14.pkl', 'wb'))
         ##############################################################
-
-        self.model = pickle.load(open('kmeans_14.pkl', 'rb')) # load kmeans model trained with 14 groups
-        self.groups = self.model.labels_ # list of what group each ticket belongs too.
-        from collections import Counter
-        print(Counter(self.groups))
+        try:
+            self.model = pickle.load(open('kmeans_14.pkl', 'rb')) # load kmeans model trained with 14 groups
+            self.groups = self.model.labels_ # list of what group each ticket belongs too.
+            from collections import Counter
+            print('Tickets per Group:')
+            print(Counter(self.groups))
+        except:
+            print('No model clusted.  Clustering model now...')
+            theCount = self.recluster()
+            print('Model clusted into 14 groups:')
+            print(theCount)
 
     def recluster(self, k_clusters = 14):
         '''performs k-means to recluster tickets, and then stores model.
